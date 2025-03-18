@@ -1,12 +1,22 @@
-import logo from "../assets/react.svg";
+import { Box } from "@chakra-ui/react";
+import logo from "@/assets/eagle.jpg";
 
 const Home = () => {
-    return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            <h1 className="text-2xl font-bold mb-4">Добро пожаловать в CareerHawk!</h1>
-            <img src={logo} alt="Логотип" className="w-32 h-32 mb-4" />
-        </div>
-    );
+  return (
+    <div>
+      <Box
+        bgImage={`url(${logo})`}
+        minH="100vh"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        bgSize="cover"
+        backgroundPosition="center"
+        bgRepeat="no-repeat"
+        backgroundSize="30%"
+      ></Box>
+    </div>
+  );
 };
 
 export default Home;
