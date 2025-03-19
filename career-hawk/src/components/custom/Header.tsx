@@ -57,7 +57,7 @@ const Header = () => {
               Создать поиск
             </Button>
             <Button variant="ghost" onClick={() => navigate("/dashboard")}>
-              Вакансии
+              Сохраненные поиски
             </Button>
             <Button variant="ghost">Статистика</Button>
             <Spacer />
