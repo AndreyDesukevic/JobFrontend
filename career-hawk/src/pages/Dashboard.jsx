@@ -1,12 +1,11 @@
 import { Box, Flex } from "@chakra-ui/react"
-import { Routes, Route, Navigate } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import LeftMenu from "../components/leftMenu/LeftMenu"
-import Searches from "./Searches" 
-
-const Vacancies = () => <Box p={8}>Вакансии</Box>
-const Statistics = () => <Box p={8}>Статистика</Box>
-const Profile = () => <Box p={8}>Профиль</Box>
-const Settings = () => <Box p={8}>Настройки</Box>
+import Searches from "./Searches"
+import Vacancies from "./Vacancies"
+import Statistics from "./Statistics"
+import Profile from "./Profile"
+import Settings from "./Settings"
 
 const Dashboard = () => {
   return (

@@ -18,7 +18,6 @@ const App = () => {
         bgRepeat="no-repeat"
       >
         <Header />
-     
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
@@ -27,7 +26,6 @@ const App = () => {
         </Routes>
       </Box>
     </>
-
   )
 }
 
