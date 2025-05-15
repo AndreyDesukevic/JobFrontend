@@ -11,7 +11,7 @@ const AddSearchModal = () => {
         </Button>
       </Dialog.Trigger>
       <Portal>
-        <Dialog.Backdrop /> {/* Добавьте эту строку для затемнения фона */}
+        <Dialog.Backdrop />
         <Dialog.Positioner>
           <Dialog.Content>
             <Dialog.Header>

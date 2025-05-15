@@ -3,6 +3,7 @@ import { Box } from '@chakra-ui/react';
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import Header from './components/header/Header'
+import AuthCallback from "./pages/AuthCallback"
 import background from './assets/eagle.jpg';
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path="*" element={<h2>Страница не найдена</h2>} />
         </Routes>
       </Box>
