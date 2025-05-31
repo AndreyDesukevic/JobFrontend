@@ -5,6 +5,7 @@ import { loginStart, loginSuccess, loginFailure } from "../store/slices/authSlic
 import axios from "axios"
 import { CALLBACK_URL } from '../config.local.json'
 import { Box, Spinner } from "@chakra-ui/react"
+import { jwtDecode } from "jwt-decode"
 
 const AuthCallback = () => {
     const [params] = useSearchParams()
@@ -17,7 +18,17 @@ const AuthCallback = () => {
             dispatch(loginStart())
             try {
                 const res = await axios.post(`${CALLBACK_URL}?code=${code}`)
-                dispatch(loginSuccess(res.data))
+                const { access_token, expires_at } = res.data
+                const decoded = jwtDecode(access_token)
+                const user = {
+                    id: decoded.sub,
+                    email: decoded.email,
+                    name: decoded.name,
+                    phone: decoded.phone,
+                }
+                localStorage.setItem("access_token", access_token)
+                localStorage.setItem("expires_at", new Date(expires_at).getTime().toString())
+                dispatch(loginSuccess({ access_token, user }))
                 navigate("/dashboard")
             } catch (e) {
                 dispatch(loginFailure("Ошибка авторизации"))
