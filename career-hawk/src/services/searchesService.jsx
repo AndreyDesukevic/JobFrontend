@@ -1,11 +1,11 @@
 import axios from "axios"
 import config from "../config.local.json"
 import { store } from "../store"
+import { HubConnectionBuilder } from "@microsoft/signalr"
 
 const API_URL = `${config.API_BASE_URL}/searches`
 
 function getToken() {
-    // Предполагается, что токен лежит в state.auth.access_token
     return store.getState().auth.access_token
 }
 
@@ -24,6 +24,7 @@ export const getSearches = async (params = { host: "hh.ru", locale: "RU" }) => {
         params,
         headers: { Authorization: `Bearer ${token}` }
     })
+    console.log(res.data);
     return res.data
 }
 
@@ -33,4 +34,25 @@ export const deleteSearch = async (id) => {
         headers: { Authorization: `Bearer ${token}` }
     })
     return res.data
+}
+
+export const runSearch = async (id, token) => {
+    return axios.post(`${API_URL}/${id}/run`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+    })
+}
+
+export const stopSearch = async (id, token) => {
+    return axios.post(`${API_URL}/${id}/stop`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+    })
+}
+
+export const createSignalRConnection = (token) => {
+    return new HubConnectionBuilder()
+        .withUrl(`${config.API_BASE_URL.replace('/api', '')}/searchStatusHub`, {
+            accessTokenFactory: () => token
+        })
+        .withAutomaticReconnect()
+        .build()
 }
