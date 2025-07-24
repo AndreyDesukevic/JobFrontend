@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  jobfrontend:
+    image: ghcr.io/andreydesukevic/jobfrontend:latest
+    container_name: jobfrontend
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./config.json:/usr/share/nginx/html/config.json:ro

@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 #urls
-src/config.local.json
+src/config.json

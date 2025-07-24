@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { useSearchParams, useNavigate } from "react-router-dom"
 import { loginStart, loginSuccess, loginFailure } from "../store/slices/authSlice"
 import axios from "axios"
-import { CALLBACK_URL } from '../config.local.json'
+import { CALLBACK_URL } from '../config.json'
 import { Box, Spinner } from "@chakra-ui/react"
 import { jwtDecode } from "jwt-decode"
 

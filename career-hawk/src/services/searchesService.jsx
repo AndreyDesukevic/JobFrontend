@@ -1,5 +1,5 @@
 import axios from "axios"
-import config from "../config.local.json"
+import config from "../config.json"
 import { store } from "../store"
 import { HubConnectionBuilder } from "@microsoft/signalr"
 

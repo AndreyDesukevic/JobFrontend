@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/react'
-import { LOGIN_URL } from '../../config.local.json'
+import { LOGIN_URL } from '../../config.json'
 
 const LoginButton = () => {
     return (

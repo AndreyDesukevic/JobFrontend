@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { LOGIN_URL } from "../../config.local.json"
+import { LOGIN_URL } from "../../config.json"
 import { Box, Spinner } from "@chakra-ui/react"
 
 const ProtectedRoute = ({ children }) => {
