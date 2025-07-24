@@ -44,6 +44,6 @@ jobs:
 
             docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GHCR_TOKEN }}
 
-            docker compose -f docker-compose.production.yml pull
+            docker compose -f docker-compose.yml pull
 
-            docker compose -f docker-compose.production.yml up -d --build
+            docker compose -f docker-compose.yml up -d --build
